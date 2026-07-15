@@ -29,6 +29,36 @@
   .wrap{max-width:720px; margin:0 auto; padding:0 24px;}
   h1,h2,h3{font-family:'Fraunces', serif; letter-spacing:-0.01em;}
 
+  /* Navigation */
+  nav{
+    position:sticky;
+    top:0;
+    background:var(--ink);
+    border-bottom:1px solid var(--line);
+    padding:16px 0;
+    margin-bottom:32px;
+    z-index:100;
+  }
+  .nav-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .nav-links a{
+    color:var(--cream);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    padding:6px 12px;
+    border-radius:6px;
+    transition:all 0.3s ease;
+  }
+  .nav-links a:hover{
+    background:rgba(242, 169, 59, 0.1);
+    color:var(--marigold);
+  }
+
   /* Stamp signature element */
   .stamp{
     display:inline-flex; align-items:center; gap:8px;
@@ -174,6 +204,43 @@
   }
   .plan .btn{width:100%; margin-top:18px;}
 
+  /* Templates Grid */
+  .templates-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+    gap:16px;
+    margin-top:24px;
+  }
+  .template-card{
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    background:var(--ink-2);
+    transition:all 0.3s ease;
+  }
+  .template-card:hover{
+    border-color:var(--marigold);
+    box-shadow:0 8px 24px rgba(242, 169, 59, 0.15);
+    transform:translateY(-4px);
+  }
+  .template-icon{
+    font-size:32px;
+    margin-bottom:12px;
+  }
+  .template-card h4{
+    font-family:'Fraunces', serif;
+    font-size:14px;
+    color:var(--cream);
+    margin-bottom:12px;
+    font-weight:600;
+  }
+  .template-card .btn{
+    font-size:13px;
+    padding:10px 16px;
+    width:100%;
+  }
+
   /* Free resources */
   .resource-box{
     border:1.5px dashed var(--line);
@@ -198,6 +265,7 @@
     .cta-row{flex-wrap:nowrap;}
     .pricing-grid{flex-direction:row;}
     .plan{flex:1;}
+    .nav-links{gap:28px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -210,10 +278,24 @@
 </head>
 <body>
 
+<!-- NAVIGATION -->
+<nav>
+  <div class="wrap">
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#templates">Templates</a>
+      <a href="#book">Contact</a>
+    </div>
+  </div>
+</nav>
+
 <div class="wrap">
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero" id="hero">
     <div class="hero-eyebrow">
       <div class="handle"><b>MomWorkBabyRepeat</b>Recruiter · Mom 24×7</div>
     </div>
@@ -225,7 +307,7 @@
 
     <div class="cta-row">
       <a href="#pricing" class="btn btn-primary">See services & pricing</a>
-      <a href="#free" class="btn btn-ghost">Get free templates</a>
+      <a href="#templates" class="btn btn-ghost">Download templates</a>
     </div>
   </div>
 
@@ -319,25 +401,69 @@
     </div>
   </section>
 
+  <!-- DOWNLOADABLE TEMPLATES -->
+  <section id="templates">
+    <div class="section-tag">// Ready-to-use templates</div>
+    <h2>Free CV Templates</h2>
+    <p style="color:var(--muted); margin-bottom:24px;">Choose the template that matches your career situation. All are ATS-optimized and recruiter-approved.</p>
+    
+    <div class="templates-grid">
+      <div class="template-card">
+        <div class="template-icon">👩‍💼</div>
+        <h4>Career Returner</h4>
+        <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">For moms & career breaks</p>
+        <a href="CV_Template_Career_Returner.pdf" class="btn btn-primary" download>Download</a>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon">🔄</div>
+        <h4>Career Switcher</h4>
+        <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">Pivot to new industry</p>
+        <a href="CV_Template_Career_Switcher.pdf" class="btn btn-primary" download>Download</a>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon">⭐</div>
+        <h4>Experienced Pro</h4>
+        <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">5+ years in field</p>
+        <a href="CV_Template_Experienced_Professional.pdf" class="btn btn-primary" download>Download</a>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon">🚀</div>
+        <h4>Entry Level</h4>
+        <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">Fresh graduates</p>
+        <a href="CV_Template_Fresher_Entry_Level.pdf" class="btn btn-primary" download>Download</a>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon">📚</div>
+        <h4>Mom Comeback Kit</h4>
+        <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">Complete guide</p>
+        <a href="The%20Mom%20Comeback%20Kit%20(1).pdf" class="btn btn-primary" download>Download</a>
+      </div>
+    </div>
+  </section>
+
   <!-- FREE RESOURCES -->
-  <section id="free">
-    <div class="section-tag">// No strings attached</div>
-    <h2>Free templates</h2>
+  <section id="resources">
+    <div class="section-tag">// Extended resources</div>
+    <h2>Bonus: More Guides & Tools</h2>
     <div class="resource-box">
-      <h3>Not ready for 1:1 coaching?</h3>
-      <p>Grab free CV, cover letter, and interview prep templates — built for every jobseeker, not just clients.</p>
-      <a href="https://bit.ly/4fwLXyN" class="btn btn-primary">Get free templates</a>
+      <h3>Want comprehensive interview prep & cover letters?</h3>
+      <p>Access our full collection with cover letter templates, interview prep guides, and 30-day job search roadmaps.</p>
+      <a href="https://bit.ly/4fwLXyN" class="btn btn-primary">View all resources</a>
     </div>
   </section>
 
   <!-- BOOKING / CONTACT -->
   <footer id="book">
     <div class="stamp">✓ Recruiter approved</div>
-    <p>Ready to start? Message me on Instagram or WhatsApp and I'll walk you through the right plan.</p>
+    <p>Ready to work together? Message me on Instagram or WhatsApp and I'll walk you through the right plan.</p>
     <div class="footer-links">
       <a href="https://instagram.com/momworkbabyrepeat" target="_blank" rel="noopener">Instagram</a>
       <a href="#" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://bit.ly/4fwLXyN" target="_blank" rel="noopener">Free Templates</a>
+      <a href="https://bit.ly/4fwLXyN" target="_blank" rel="noopener">All Resources</a>
     </div>
   </footer>
 
