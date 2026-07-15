@@ -1,161 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mom Work Baby Repeat</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .subtitle {
-            color: #666;
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 16px;
-        }
-        
-        .resources {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .resource-card {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .resource-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .resource-card h3 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        
-        .resource-card p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .about {
-            background: #f0f4ff;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            margin-top: 30px;
-        }
-        
-        .about h2 {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .about p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MomWorkBabyRepeat — Career Coaching by a Recruiter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12203A;
+    --ink-2:#1B2E52;
+    --cream:#F5F0E6;
+    --marigold:#F2A93B;
+    --marigold-deep:#D98A1E;
+    --jade:#5FB49A;
+    --muted:#AEB9CF;
+    --line:rgba(245,240,230,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Manrope', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:0 24px;}
+  h1,h2,h3{font-family:'Fraunces', serif; letter-spacing:-0.01em;}
+
+  /* Stamp signature element */
+  .stamp{
+    display:inline-flex; align-items:center; gap:8px;
+    border:2px solid var(--marigold);
+    color:var(--marigold);
+    border-radius:100px;
+    padding:6px 16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transform:rotate(-2deg);
+  }
+
+  /* Hero */
+  .hero{
+    padding:64px 0 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:28px;
+  }
+  .hero-eyebrow img{
+    width:56px; height:56px; border-radius:50%;
+    border:2px solid var(--marigold);
+    object-fit:cover;
+  }
+  .hero-eyebrow .handle{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--muted);}
+  .hero-eyebrow .handle b{color:var(--cream); display:block; font-size:14px;}
+
+  .mission-number{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:clamp(52px, 15vw, 84px);
+    line-height:0.95;
+    color:var(--marigold);
+    font-variant-numeric:tabular-nums;
+  }
+  .mission-label{
+    font-size:17px;
+    color:var(--cream);
+    margin-top:8px;
+    max-width:420px;
+  }
+  .hero-sub{
+    margin-top:22px;
+    color:var(--muted);
+    font-size:15.5px;
+    max-width:460px;
+  }
+  .cta-row{margin-top:32px; display:flex; flex-wrap:wrap; gap:12px;}
+  .btn{
+    display:inline-block;
+    padding:14px 26px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    text-align:center;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{background:var(--marigold); color:var(--ink);}
+  .btn-primary:hover{background:var(--marigold-deep);}
+  .btn-ghost{border:1.5px solid var(--line); color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--marigold); color:var(--marigold);}
+
+  /* Stats strip */
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    padding:36px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .stat b{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:clamp(20px,5vw,26px);
+    color:var(--cream);
+  }
+  .stat span{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* Section generic */
+  section{padding:56px 0;}
+  .section-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--jade);
+    margin-bottom:14px;
+  }
+  section h2{font-size:clamp(26px,6vw,34px); margin-bottom:18px; font-weight:700;}
+  .about-text{color:var(--muted); font-size:16px; max-width:520px;}
+  .about-text b{color:var(--cream);}
+
+  /* Services */
+  .service-list{margin-top:8px;}
+  .service{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    display:flex; gap:18px; align-items:flex-start;
+  }
+  .service:last-child{border-bottom:1px solid var(--line);}
+  .service-icon{font-size:22px; line-height:1;}
+  .service h3{font-size:18px; font-weight:600; margin-bottom:4px; font-family:'Manrope';}
+  .service p{color:var(--muted); font-size:14.5px;}
+
+  /* Pricing */
+  .pricing-grid{display:flex; flex-direction:column; gap:16px; margin-top:8px;}
+  .plan{
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px;
+    position:relative;
+    background:var(--ink-2);
+  }
+  .plan.popular{border-color:var(--marigold);}
+  .plan-badge{
+    position:absolute; top:-11px; right:20px;
+    background:var(--marigold); color:var(--ink);
+    font-size:11px; font-weight:800;
+    padding:4px 10px; border-radius:100px;
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.05em;
+  }
+  .plan-name{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--jade); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;}
+  .plan-title{font-family:'Fraunces',serif; font-size:22px; font-weight:600; margin-bottom:10px;}
+  .plan-price{font-family:'IBM Plex Mono', monospace; font-size:28px; color:var(--cream); margin-bottom:16px;}
+  .plan-price span{font-size:13px; color:var(--muted); font-weight:400;}
+  .plan ul{list-style:none;}
+  .plan li{
+    font-size:14.5px; color:var(--muted);
+    padding:6px 0 6px 22px;
+    position:relative;
+  }
+  .plan li::before{
+    content:"✓";
+    position:absolute; left:0; top:6px;
+    color:var(--jade); font-weight:700;
+  }
+  .plan .btn{width:100%; margin-top:18px;}
+
+  /* Free resources */
+  .resource-box{
+    border:1.5px dashed var(--line);
+    border-radius:16px;
+    padding:28px;
+    text-align:left;
+  }
+  .resource-box h3{font-family:'Fraunces',serif; font-size:20px; margin-bottom:8px;}
+  .resource-box p{color:var(--muted); font-size:14.5px; margin-bottom:18px;}
+
+  footer{
+    padding:48px 0 64px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  footer .stamp{margin-bottom:18px;}
+  footer p{color:var(--muted); font-size:14px; margin-bottom:16px;}
+  .footer-links{display:flex; justify-content:center; gap:20px; flex-wrap:wrap;}
+  .footer-links a{color:var(--cream); text-decoration:none; font-size:14px; font-weight:600; border-bottom:1px solid var(--marigold); padding-bottom:2px;}
+
+  @media (min-width:600px){
+    .cta-row{flex-wrap:nowrap;}
+    .pricing-grid{flex-direction:row;}
+    .plan{flex:1;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn{transition:none;}
+  }
+
+  :focus-visible{outline:2px solid var(--marigold); outline-offset:3px;}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🌟 Mom Work Baby Repeat</h1>
-        <p class="subtitle">Your Career Comeback Toolkit</p>
-        
-        <div class="resources">
-            <div class="resource-card">
-                <h3>📄 CV Templates</h3>
-                
-                <div style="margin-bottom: 15px;">
-                    <p>Career Returner</p>
-                    <a href="CV_Template_Career_Returner.pdf" class="download-btn">Download</a>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <p>Career Switcher</p>
-                    <a href="CV_Template_Career_Switcher.pdf" class="download-btn">Download</a>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <p>Experienced Professional</p>
-                    <a href="CV_Template_Experienced_Professional.pdf" class="download-btn">Download</a>
-                </div>
-                
-                <div>
-                    <p>Fresher / Entry Level</p>
-                    <a href="CV_Template_Fresher_Entry_Level.pdf" class="download-btn">Download</a>
-                </div>
-            </div>
-            
-            <div class="resource-card">
-                <h3>🎯 Mom Comeback Kit</h3>
-                <p>Complete guide to restart your career journey after a break</p>
-                <a href="The%20Mom%20Comeback%20Kit%20(1).pdf" class="download-btn">Download</a>
-            </div>
-        </div>
-        
-        <div class="about">
-            <h2>About This Resource</h2>
-            <p>This toolkit is designed to help professionals, especially mothers returning to the workforce, craft compelling CVs and navigate their career comeback with confidence. Choose the CV template that best matches your situation and customize it with your information.</p>
-        </div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <div class="handle"><b>MomWorkBabyRepeat</b>Recruiter · Mom 24×7</div>
     </div>
+
+    <div class="mission-number">10,000</div>
+    <div class="mission-label">Moms hired in 2026 — that's the mission. CV writing, interview prep, and job strategy from someone who actually sits on the hiring side.</div>
+
+    <p class="hero-sub">8+ years hiring for companies like Wipro, Barclays, and EXL — now helping jobseekers get past the same filters recruiters use every day.</p>
+
+    <div class="cta-row">
+      <a href="#pricing" class="btn btn-primary">See services & pricing</a>
+      <a href="#free" class="btn btn-ghost">Get free templates</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><b>303.4K</b><span>Views / 30 days</span></div>
+    <div class="stat"><b>1,761+</b><span>Followers</span></div>
+    <div class="stat"><b>8 yrs</b><span>In tech hiring</span></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-tag">// The recruiter behind it</div>
+    <h2>I've read the CVs that get rejected in 10 seconds.</h2>
+    <p class="about-text">I'm <b>Vandana</b> — a Technical Recruiter with 8+ years in IT talent acquisition, and a mom who knows exactly how hard a career gap or a WFH job search can be. I help moms, career returners, and job switchers craft CVs that pass recruiter filters and land interviews.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag">// How I can help</div>
+    <h2>Services</h2>
+    <div class="service-list">
+      <div class="service">
+        <div class="service-icon">📄</div>
+        <div>
+          <h3>CV Writing</h3>
+          <p>A recruiter-reviewed CV rebuilt to pass ATS filters and get noticed in seconds, not skipped.</p>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">🎯</div>
+        <div>
+          <h3>Interview Prep</h3>
+          <p>1:1 mock interviews and direct feedback from someone who interviews candidates for a living.</p>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">🧭</div>
+        <div>
+          <h3>Job Strategy Session</h3>
+          <p>A personalized roadmap for your career gap, WFH search, or career pivot — no guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-tag">// Pick your plan</div>
+    <h2>Pricing</h2>
+    <div class="pricing-grid">
+
+      <div class="plan">
+        <div class="plan-name">Starter</div>
+        <div class="plan-title">CV Makeover</div>
+        <div class="plan-price">₹299</div>
+        <ul>
+          <li>1 CV rewrite + formatting</li>
+          <li>1 round of revisions</li>
+          <li>Delivered in 3 days</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Choose Starter</a>
+      </div>
+
+      <div class="plan popular">
+        <div class="plan-badge">Most popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-title">CV + Interview Prep</div>
+        <div class="plan-price">₹499</div>
+        <ul>
+          <li>CV rewrite + revisions</li>
+          <li>1 mock interview (45 min)</li>
+          <li>Personalized feedback notes</li>
+        </ul>
+        <a href="#book" class="btn btn-primary">Choose Growth</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Complete</div>
+        <div class="plan-title">Full Career Strategy</div>
+        <div class="plan-price">₹1999</div>
+        <ul>
+          <li>CV + LinkedIn optimization</li>
+          <li>2 mock interview sessions</li>
+          <li>1:1 job search roadmap call</li>
+          <li>2 weeks of WhatsApp support</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Choose Complete</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FREE RESOURCES -->
+  <section id="free">
+    <div class="section-tag">// No strings attached</div>
+    <h2>Free templates</h2>
+    <div class="resource-box">
+      <h3>Not ready for 1:1 coaching?</h3>
+      <p>Grab free CV, cover letter, and interview prep templates — built for every jobseeker, not just clients.</p>
+      <a href="https://bit.ly/4fwLXyN" class="btn btn-primary">Get free templates</a>
+    </div>
+  </section>
+
+  <!-- BOOKING / CONTACT -->
+  <footer id="book">
+    <div class="stamp">✓ Recruiter approved</div>
+    <p>Ready to start? Message me on Instagram or WhatsApp and I'll walk you through the right plan.</p>
+    <div class="footer-links">
+      <a href="https://instagram.com/momworkbabyrepeat" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://bit.ly/4fwLXyN" target="_blank" rel="noopener">Free Templates</a>
+    </div>
+  </footer>
+
+</div>
+
 </body>
 </html>
