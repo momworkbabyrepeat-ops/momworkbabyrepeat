@@ -195,6 +195,61 @@
     transform:scale(0.98);
   }
 
+  /* Book a Consultation Section */
+  .cta-section{
+    background:var(--ink-2);
+    border:1.5px solid var(--marigold);
+    border-radius:16px;
+    padding:40px 28px;
+    margin:56px 0;
+    text-align:center;
+  }
+  .cta-heading{
+    font-family:'Fraunces', serif;
+    font-size:clamp(24px, 6vw, 32px);
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:12px;
+  }
+  .cta-tagline{
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:28px;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cta-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:center;
+  }
+  .cta-btn{
+    display:inline-block;
+    padding:16px 32px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:16px;
+    transition:all 0.3s ease;
+  }
+  .cta-btn-primary{
+    background:var(--marigold);
+    color:var(--ink);
+  }
+  .cta-btn-primary:hover{
+    background:var(--marigold-deep);
+    transform:translateY(-2px);
+  }
+  .cta-btn-secondary{
+    border:1.5px solid var(--marigold);
+    color:var(--marigold);
+  }
+  .cta-btn-secondary:hover{
+    background:rgba(242, 169, 59, 0.1);
+  }
+
   /* Stats strip */
   .stats{
     display:grid; grid-template-columns:repeat(3,1fr);
@@ -330,6 +385,7 @@
 
   @media (min-width:600px){
     .cta-row{flex-wrap:nowrap;}
+    .cta-buttons{flex-direction:row; justify-content:center; gap:16px;}
     .pricing-grid{flex-direction:row;}
     .plan{flex:1;}
     .nav-links{gap:28px;}
@@ -423,6 +479,17 @@
     <p class="about-text">I'm <b>Vandana</b> — a Technical Recruiter with 8+ years in IT talent acquisition, and a mom who knows exactly how hard a career gap or a WFH job search can be. I help candidates do what most recruiters don't have time for: actually explain your story.</p>
   </section>
 
+  <!-- BOOK A CONSULTATION SECTION -->
+  <div class="cta-section" id="book-cta">
+    <div class="cta-heading">🎯 Ready to Get Started?</div>
+    <p class="cta-tagline">Book a quick strategy call or ask any questions about our services. Let's discuss your career goals.</p>
+    
+    <div class="cta-buttons">
+      <a href="https://wa.me/919557900175?text=Hi%21%20I'm%20interested%20in%20booking%20a%20consultation%20slot.%20Please%20let%20me%20know%20your%20available%20timings." target="_blank" rel="noopener" class="cta-btn cta-btn-primary">💬 Book on WhatsApp</a>
+      <a href="mailto:momworkbabyrepeat@gmail.com" class="cta-btn cta-btn-secondary">📧 Email Me</a>
+    </div>
+  </div>
+
   <!-- SERVICES -->
   <section id="services">
     <div class="section-tag">// How I can help</div>
@@ -467,7 +534,7 @@
           <li>1 round of revisions</li>
           <li>Delivered in 3 days</li>
         </ul>
-        <a href="#book" class="btn btn-ghost">Choose Starter</a>
+        <a href="#book-cta" class="btn btn-ghost">Choose Starter</a>
       </div>
 
       <div class="plan popular">
@@ -480,7 +547,7 @@
           <li>1 mock interview (45 min)</li>
           <li>Personalized feedback notes</li>
         </ul>
-        <a href="#book" class="btn btn-primary">Choose Growth</a>
+        <a href="#book-cta" class="btn btn-primary">Choose Growth</a>
       </div>
 
       <div class="plan">
@@ -493,7 +560,7 @@
           <li>1:1 job search roadmap call</li>
           <li>2 weeks of WhatsApp support</li>
         </ul>
-        <a href="#book" class="btn btn-ghost">Choose Complete</a>
+        <a href="#book-cta" class="btn btn-ghost">Choose Complete</a>
       </div>
 
     </div>
